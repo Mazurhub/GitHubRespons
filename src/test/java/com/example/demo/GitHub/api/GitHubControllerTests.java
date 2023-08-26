@@ -1,7 +1,7 @@
 package com.example.demo.GitHub.api;
 
-import com.example.demo.GitHub.GitHubOwnerResponse;
-import com.example.demo.GitHub.GitHubRepositoryInfo;
+import com.example.demo.GitHub.api.dto.GitHubOwnerResponse;
+import com.example.demo.GitHub.api.dto.GitHubRepositoryInfo;
 import com.example.demo.GitHub.api.exceptions.GitHubUserNotExisting;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,7 +37,7 @@ class GitHubControllerTests {
         GitHubRepositoryInfo repoInfo = new GitHubRepositoryInfo("repoName", new GitHubOwnerResponse("ownerLogin"), Collections.emptyList());
         List<GitHubRepositoryInfo> repositoryInfoList = Collections.singletonList(repoInfo);
 
-        when(gitHubFacade.getRepositoryInfoByUserName("validUser")).thenReturn(repositoryInfoList);
+        when(gitHubFacade.GetRepositoryInfoByUserName("validUser")).thenReturn(repositoryInfoList);
     }
 
     @Test
@@ -51,7 +51,7 @@ class GitHubControllerTests {
 
     @Test
     void testGetRepositoriesReturnsNotFoundForInvalidUser() {
-        when(gitHubFacade.getRepositoryInfoByUserName("invalidUser"))
+        when(gitHubFacade.GetRepositoryInfoByUserName("invalidUser"))
                 .thenThrow(new GitHubUserNotExisting("invalidUser: User not found or does not exist", null));
 
         ResponseEntity<String> response = restTemplate
