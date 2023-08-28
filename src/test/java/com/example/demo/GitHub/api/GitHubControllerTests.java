@@ -1,5 +1,7 @@
 package com.example.demo.GitHub.api;
 
+import com.example.demo.GitHub.api.dto.BranchesAndLastCommit;
+import com.example.demo.GitHub.api.dto.Repositories;
 import com.example.demo.GitHub.api.dto.RepositoriesInfo;
 import com.example.demo.GitHub.api.exceptions.GitHubUserNotExisting;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,12 +33,13 @@ class GitHubControllerTests {
     private int port;
 
     @BeforeEach
-        // Dummies and configurations needed for testing are prepared here.
     void setUp() {
-        RepositoriesInfo repoInfo = new RepositoriesInfo("repoName","ownerLogin", Collections.emptyList());
-        List<RepositoriesInfo> repositoryInfoList = Collections.singletonList(repoInfo);
 
-        when(gitHubFacade.GetRepositoryInfoByUserName("validUser")).thenReturn(repositoryInfoList);
+        BranchesAndLastCommit lastCommit = new BranchesAndLastCommit("main", "abcdef123456");
+        List<BranchesAndLastCommit> branches = Collections.singletonList(lastCommit);
+        RepositoriesInfo repoInfo = new RepositoriesInfo("repoName", "ownerLogin", branches);
+        Repositories repositories = new Repositories(Collections.singletonList(repoInfo));
+        when(gitHubFacade.GetRepositoryInfoByUserName("validUser")).thenReturn(repositories);
     }
 
     @Test
