@@ -1,12 +1,10 @@
 package com.example.demo.GitHub.api;
 
 
-import com.example.demo.GitHub.api.dto.RepositoriesInfo;
-
-import java.util.List;
+import com.example.demo.GitHub.api.dto.Repositories;
 
 
 public interface GitHubFacade {
 
-    List<RepositoriesInfo> GetRepositoryInfoByUserName(String username);
+    Repositories GetRepositoryInfoByUserName(String username);
 }

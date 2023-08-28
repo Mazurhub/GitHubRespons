@@ -1,12 +1,10 @@
 package com.example.demo.GitHub;
 
 import com.example.demo.GitHub.api.GitHubFacade;
-import com.example.demo.GitHub.api.dto.RepositoriesInfo;
+import com.example.demo.GitHub.api.dto.Repositories;
 import com.example.demo.GitHub.api.exceptions.GitHubUserNotExisting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
 
 class GitHubFacadeImpl implements GitHubFacade {
     private final GetGitHubRepositoryInfoUseCase getGitHubRepositoryInfoUseCase;
@@ -23,7 +21,7 @@ class GitHubFacadeImpl implements GitHubFacade {
     In the current scenario, where queries are executed only once, implementing the cache mechanism is not necessary.
      */
     @Override
-    public List<RepositoriesInfo> GetRepositoryInfoByUserName(String username) {
+    public Repositories GetRepositoryInfoByUserName(String username) {
         try {
             return getGitHubRepositoryInfoUseCase.execute(username);
         } catch (Exception exception) {
