@@ -1,7 +1,7 @@
 package com.example.demo.GitHub.api;
 
-import com.example.demo.GitHub.api.dto.GitHubOwnerResponse;
-import com.example.demo.GitHub.api.dto.GitHubRepositoryInfo;
+import com.example.demo.GitHub.GitHubOwnerResponse;
+import com.example.demo.GitHub.GitHubRepositoryInfo;
 import com.example.demo.GitHub.api.exceptions.GitHubUserNotExisting;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

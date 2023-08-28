@@ -1,11 +1,13 @@
 package com.example.demo.GitHub.api;
 
-import com.example.demo.GitHub.api.dto.GitHubRepositoryInfo;
+
+import com.example.demo.GitHub.GitHubRepositoryInfo;
+import com.example.demo.GitHub.api.dto.RepositoriesInfo;
 
 import java.util.List;
 
 
 public interface GitHubFacade {
 
-    List<GitHubRepositoryInfo> GetRepositoryInfoByUserName(String username);
+    List<RepositoriesInfo> GetRepositoryInfoByUserName(String username);
 }

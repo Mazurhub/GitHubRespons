@@ -1,9 +1,9 @@
 package com.example.demo.GitHub.api;
 
-import com.example.demo.GitHub.api.dto.GitHubBranchInfo;
-import com.example.demo.GitHub.api.dto.GitHubCommitResponse;
-import com.example.demo.GitHub.api.dto.GitHubOwnerResponse;
-import com.example.demo.GitHub.api.dto.GitHubRepositoryInfo;
+import com.example.demo.GitHub.GitHubBranchInfo;
+import com.example.demo.GitHub.GitHubCommitResponse;
+import com.example.demo.GitHub.GitHubOwnerResponse;
+import com.example.demo.GitHub.GitHubRepositoryInfo;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;

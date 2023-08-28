@@ -1,8 +1,5 @@
 package com.example.demo.GitHub;
 
-import com.example.demo.GitHub.api.dto.GitHubBranchInfo;
-import com.example.demo.GitHub.api.dto.GitHubRepositoryInfo;
-
 import java.util.List;
 
 interface GitHubRepositoryConnector {

@@ -1,9 +1,5 @@
 package com.example.demo.GitHub;
 
-import com.example.demo.GitHub.api.dto.GitHubBranchInfo;
-import com.example.demo.GitHub.api.dto.GitHubCommitResponse;
-import com.example.demo.GitHub.api.dto.GitHubOwnerResponse;
-import com.example.demo.GitHub.api.dto.GitHubRepositoryInfo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -40,7 +36,7 @@ class GitHubClientTest {
         GitHubRepositoryInfo expectedRepo = expectedRepositories.get(0);
         GitHubRepositoryInfo actualRepo = result.get(0);
 
-        assertEquals(expectedRepo.repositoryName(), actualRepo.repositoryName());
+        assertEquals(expectedRepo.name(), actualRepo.name());
         assertEquals(expectedRepo.owner().login(), actualRepo.owner().login());
     }
 
