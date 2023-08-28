@@ -8,7 +8,7 @@ class XmlToJsonConverter {
 
     String convertToJson(ErrorResponse errorResponse) throws Exception {
         ObjectMapper jsonMapper = new ObjectMapper();
-        jsonMapper.enable(SerializationFeature.INDENT_OUTPUT);
+        //jsonMapper.enable(SerializationFeature.INDENT_OUTPUT);
         return jsonMapper.writeValueAsString(errorResponse);
     }
 }

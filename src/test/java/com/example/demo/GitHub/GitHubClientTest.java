@@ -26,7 +26,7 @@ class GitHubClientTest {
         // Arrange
         String username = "testUser";
         GitHubOwnerResponse owner = new GitHubOwnerResponse("ownerLogin");
-        List<GitHubRepositoryInfo> expectedRepositories = Collections.singletonList(new GitHubRepositoryInfo("repo", owner, null));
+        List<GitHubRepositoryInfo> expectedRepositories = Collections.singletonList(new GitHubRepositoryInfo("repo", owner));
         when(gitHubClient.getRepositoryNameAndOwnerLoginByUserName(username)).thenReturn(expectedRepositories);
 
         List<GitHubRepositoryInfo> result = gitHubClient.getRepositoryNameAndOwnerLoginByUserName(username);

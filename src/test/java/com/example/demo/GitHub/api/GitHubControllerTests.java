@@ -1,7 +1,6 @@
 package com.example.demo.GitHub.api;
 
-import com.example.demo.GitHub.GitHubOwnerResponse;
-import com.example.demo.GitHub.GitHubRepositoryInfo;
+import com.example.demo.GitHub.api.dto.RepositoriesInfo;
 import com.example.demo.GitHub.api.exceptions.GitHubUserNotExisting;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,8 +33,8 @@ class GitHubControllerTests {
     @BeforeEach
         // Dummies and configurations needed for testing are prepared here.
     void setUp() {
-        GitHubRepositoryInfo repoInfo = new GitHubRepositoryInfo("repoName", new GitHubOwnerResponse("ownerLogin"), Collections.emptyList());
-        List<GitHubRepositoryInfo> repositoryInfoList = Collections.singletonList(repoInfo);
+        RepositoriesInfo repoInfo = new RepositoriesInfo("repoName","ownerLogin", Collections.emptyList());
+        List<RepositoriesInfo> repositoryInfoList = Collections.singletonList(repoInfo);
 
         when(gitHubFacade.GetRepositoryInfoByUserName("validUser")).thenReturn(repositoryInfoList);
     }
