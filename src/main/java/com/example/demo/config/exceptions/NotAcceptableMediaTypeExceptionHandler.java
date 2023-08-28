@@ -1,6 +1,9 @@
 package com.example.demo.config.exceptions;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -11,13 +14,10 @@ class NotAcceptableMediaTypeExceptionHandler {
 
     @ExceptionHandler(HttpMediaTypeNotAcceptableException.class)
     @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
-    String handleHttpMediaTypeNotAcceptableException(HttpMediaTypeNotAcceptableException ex) throws Exception {
+    ResponseEntity<ErrorResponse> handleHttpMediaTypeNotAcceptableException() {
         ErrorResponse errorResponse = new ErrorResponse("406", "Not Acceptable - Unsupported Media Type");
-        XmlToJsonConverter converter = new XmlToJsonConverter();
-        return converter.convertToJson(errorResponse);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(errorResponse, headers, HttpStatus.NOT_ACCEPTABLE);
     }
 }
-
-
-
-
