@@ -1,6 +1,5 @@
 package com.example.demo.GitHub.api;
 
-import com.example.demo.GitHub.GitHubRepositoryInfo;
 import com.example.demo.GitHub.api.dto.RepositoriesInfo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

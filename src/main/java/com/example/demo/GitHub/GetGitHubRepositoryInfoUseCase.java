@@ -13,7 +13,7 @@ class GetGitHubRepositoryInfoUseCase {
         this.connector = connector;
     }
 
-    public List<RepositoriesInfo> execute(String username) {
+    List<RepositoriesInfo> execute(String username) {
         List<GitHubRepositoryInfo> repositories = connector.getRepositoryNameAndOwnerLoginByUserName(username);
 
         List<RepositoriesInfo> repositoriesInfo = new ArrayList<>();

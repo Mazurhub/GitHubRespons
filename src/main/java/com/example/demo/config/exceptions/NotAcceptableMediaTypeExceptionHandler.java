@@ -11,7 +11,7 @@ class NotAcceptableMediaTypeExceptionHandler {
 
     @ExceptionHandler(HttpMediaTypeNotAcceptableException.class)
     @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
-    public String handleHttpMediaTypeNotAcceptableException(HttpMediaTypeNotAcceptableException ex) throws Exception {
+    String handleHttpMediaTypeNotAcceptableException(HttpMediaTypeNotAcceptableException ex) throws Exception {
         ErrorResponse errorResponse = new ErrorResponse("406", "Not Acceptable - Unsupported Media Type");
         XmlToJsonConverter converter = new XmlToJsonConverter();
         return converter.convertToJson(errorResponse);
