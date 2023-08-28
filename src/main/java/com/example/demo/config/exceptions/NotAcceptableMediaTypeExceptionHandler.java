@@ -6,16 +6,18 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-
 @RestControllerAdvice
 class NotAcceptableMediaTypeExceptionHandler {
 
     @ExceptionHandler(HttpMediaTypeNotAcceptableException.class)
     @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
-    public String handleHttpMediaTypeNotAcceptableException(HttpMediaTypeNotAcceptableException ex) {
-        String xmlResponse = "<Map><status>406</status><message>Not Acceptable - Unsupported Media Type</message></Map>";
-
+    public String handleHttpMediaTypeNotAcceptableException(HttpMediaTypeNotAcceptableException ex) throws Exception {
+        ErrorResponse errorResponse = new ErrorResponse("406", "Not Acceptable - Unsupported Media Type");
         XmlToJsonConverter converter = new XmlToJsonConverter();
-        return converter.convert(xmlResponse);
+        return converter.convertToJson(errorResponse);
     }
 }
+
+
+
+
