@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@FeignClient(name = "GitHubClient",
-        url = "https://api.github.com/",
-        configuration = FeignConfiguration.class)
+@FeignClient(name = "GitHubClient", url = "https://api.github.com/")
 interface GitHubClient extends GitHubRepositoryConnector {
     @RequestMapping(method = RequestMethod.GET, value = "users/{username}/repos", produces = "application/json")
     @Override
