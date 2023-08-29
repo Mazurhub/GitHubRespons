@@ -20,6 +20,12 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
+/*
+//The annotation I should use for this test is:
+@SpringBootTest
+@AutoConfigureMockMvc
+//This is a good choice if you want to test controllers in isolation without running the full server.
+ */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class GitHubControllerTests {
 
