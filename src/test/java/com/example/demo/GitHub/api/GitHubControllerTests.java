@@ -39,7 +39,7 @@ class GitHubControllerTests {
         List<BranchesAndLastCommit> branches = Collections.singletonList(lastCommit);
         RepositoriesInfo repoInfo = new RepositoriesInfo("repoName", "ownerLogin", branches);
         Repositories repositories = new Repositories(Collections.singletonList(repoInfo));
-        when(gitHubFacade.GetRepositoryInfoByUserName("validUser")).thenReturn(repositories);
+        when(gitHubFacade.getRepositoryInfoByUserName("validUser")).thenReturn(repositories);
     }
 
     @Test
@@ -53,7 +53,7 @@ class GitHubControllerTests {
 
     @Test
     void testGetRepositoriesReturnsNotFoundForInvalidUser() {
-        when(gitHubFacade.GetRepositoryInfoByUserName("invalidUser"))
+        when(gitHubFacade.getRepositoryInfoByUserName("invalidUser"))
                 .thenThrow(new GitHubUserNotExisting("invalidUser: User not found or does not exist", null));
 
         ResponseEntity<String> response = restTemplate

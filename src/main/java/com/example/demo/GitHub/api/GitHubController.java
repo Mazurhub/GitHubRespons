@@ -17,7 +17,7 @@ class GitHubController {
 
     @GetMapping(value = "/{username}", produces = "application/json")
     Repositories getRepositoriesInfo(@PathVariable String username) {
-        return gitHubFacade.GetRepositoryInfoByUserName(username);
+        return gitHubFacade.getRepositoryInfoByUserName(username);
 
     }
 }

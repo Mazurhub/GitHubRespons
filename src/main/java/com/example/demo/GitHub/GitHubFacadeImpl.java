@@ -3,6 +3,7 @@ package com.example.demo.GitHub;
 import com.example.demo.GitHub.api.GitHubFacade;
 import com.example.demo.GitHub.api.dto.Repositories;
 import com.example.demo.GitHub.api.exceptions.GitHubUserNotExisting;
+import feign.FeignException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,10 +22,10 @@ class GitHubFacadeImpl implements GitHubFacade {
     In the current scenario, where queries are executed only once, implementing the cache mechanism is not necessary.
      */
     @Override
-    public Repositories GetRepositoryInfoByUserName(String username) {
+    public Repositories getRepositoryInfoByUserName(String username) {
         try {
             return getGitHubRepositoryInfoUseCase.execute(username);
-        } catch (Exception exception) {
+        } catch (FeignException exception) {
             log.error("Error occurred", exception);
             throw new GitHubUserNotExisting(String.format(username + ": " + "User not found or does not exist"), exception);
         }
